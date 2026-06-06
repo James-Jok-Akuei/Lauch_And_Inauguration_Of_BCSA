@@ -133,17 +133,22 @@ export const objectives = [
  *  LEADERSHIP BOARD — the new executive (carousel of photo / name / position).
  *  Add as many as needed.
  * ------------------------------------------------------------------------- */
-// Names below are first names taken from the photo filenames — replace with the
-// full names. Positions were inferred from the filenames; adjust as needed.
+// Leaders with real photos use files in /public/photos/leadership.
+// Members awaiting a photo use the neutral `portrait()` placeholder for now —
+// drop their image in that folder and swap the `photo` value to replace it.
 export const leadership = [
-  { id: "l1", name: "Akech", position: "President", photo: "/photos/leadership/akech-president.jpg" },
-  { id: "l2", name: "Teta", position: "General Secretary", photo: "/photos/leadership/teta-general-secretary.png" },
-  { id: "l3", name: "Jok", position: "Speaker", photo: "/photos/leadership/jok-speaker.jpg" },
-  { id: "l4", name: "Athiak", position: "Finance Secretary", photo: "/photos/leadership/athiak-finance.jpg" },
-  { id: "l5", name: "Agau", position: "Academic Lead", photo: "/photos/leadership/agau-academic-lead.png" },
-  { id: "l6", name: "Achol", position: "Cultural Lead", photo: "/photos/leadership/achol-cultural-lead.png" },
-  { id: "l7", name: "Jok Maker Kur", position: "Vice Cultural Lead", photo: "/photos/leadership/jok-maker-kur-Culture.png" },
-  { id: "l8", name: "Shushu", position: "PLACEHOLDER — position", photo: "/photos/leadership/shushu.png" },
+  { id: "l1", name: "Jacob Akech Majur Ngor", position: "Chairman", photo: "/photos/leadership/akech-president.jpg" },
+  { id: "l2", name: "Mabiei Deng Ayuen", position: "Deputy Chairman", photo: portrait("Deputy Chairman") },
+  { id: "l3", name: "James Jok Dut Akuei", position: "Speaker", photo: "/photos/leadership/jok-speaker.jpg" },
+  { id: "l4", name: "Teta", position: "General Secretary", photo: "/photos/leadership/teta-general-secretary.png" },
+  { id: "l5", name: "Reng Jok Manyok", position: "Deputy Secretary", photo: portrait("Deputy Secretary") },
+  { id: "l6", name: "Athiak", position: "Finance Secretary", photo: "/photos/leadership/athiak-finance.jpg" },
+  { id: "l7", name: "Achol Akuei Deng", position: "Deputy Finance", photo: portrait("Deputy Finance") },
+  { id: "l8", name: "Mayom Wai Reng", position: "Internal Affairs", photo: portrait("Internal Affairs") },
+  { id: "l9", name: "Agau Kuol Guel", position: "Academic Lead", photo: "/photos/leadership/agau-academic-lead.png" },
+  { id: "l10", name: "Achol Panchol Kou", position: "Cultural Lead", photo: "/photos/leadership/achol-cultural-lead.png" },
+  { id: "l11", name: "Jok Maker Kur", position: "Vice Cultural Lead", photo: "/photos/leadership/jok-maker-kur-Culture.png" },
+  { id: "l12", name: "Shushu", position: "PLACEHOLDER — position", photo: "/photos/leadership/shushu.png" },
 ];
 
 /* ---------------------------------------------------------------------------
