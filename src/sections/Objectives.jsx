@@ -29,6 +29,7 @@ const Objectives = forwardRef(function Objectives(_props, ref) {
         <Carousel
           items={objectives}
           label="Strategic priorities"
+          autoPlay={9000}
           renderItem={(o, i) => (
             <div className="grid gap-8 lg:grid-cols-12 lg:gap-14">
               {/* Left: index, title, guiding focus */}

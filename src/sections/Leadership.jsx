@@ -30,7 +30,7 @@ const Leadership = forwardRef(function Leadership(_props, ref) {
         <Carousel
           items={leadership}
           label="Leadership board"
-          autoPlay={6000}
+          autoPlay={5500}
           renderItem={(person) => (
             <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-12 lg:gap-20">
               <Portrait

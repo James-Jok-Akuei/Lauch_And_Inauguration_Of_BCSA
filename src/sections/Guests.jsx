@@ -30,6 +30,7 @@ const Guests = forwardRef(function Guests(_props, ref) {
         <Carousel
           items={guests}
           label="Invited guests"
+          autoPlay={6500}
           renderItem={(guest) => (
             <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-12 lg:gap-20">
               <Link

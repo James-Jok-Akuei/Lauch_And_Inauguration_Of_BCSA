@@ -91,7 +91,7 @@ export default function Carousel({
           transition={
             reduce
               ? { duration: 0 }
-              : { type: "spring", stiffness: 260, damping: 34 }
+              : { duration: 1.1, ease: [0.22, 1, 0.36, 1] }
           }
         >
           {items.map((item, i) => (
