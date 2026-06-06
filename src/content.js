@@ -29,8 +29,8 @@ const portrait = (label) =>
  *  SITE — global identity used on the Cover, header mark, and Closing slide.
  * ------------------------------------------------------------------------- */
 export const site = {
-  name: "Bor County Students' Association",
-  abbr: "BCSA",
+  name: "Bor County Students' Association in Rwanda",
+  abbr: "BCSAR",
   // Tagline taken from the official emblem. Edit if you'd prefer different copy.
   tagline: "Rooted in Identity, Rising in Excellence",
   // Event line shown on the cover (date · venue).
@@ -44,7 +44,7 @@ export const site = {
  * ------------------------------------------------------------------------- */
 export const missionVision = {
   mission:
-    "The Bor County Students' Association (BCSA) exists to unite Bor students " +
+    "The Bor County Students' Association in Rwanda (BCSAR) exists to unite Bor students " +
     "through inclusive leadership, promote academic excellence, safeguard student " +
     "welfare, preserve cultural heritage, and foster peace and collaboration within " +
     "Rwanda and beyond.",
@@ -166,7 +166,7 @@ export const guests = [
     photo: "/photos/guests/mayol-guest-of-honor.jpg",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSA.",
+      "this guest's background, role, and connection to Bor County and to BCSAR.",
     speechNote:
       "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
       "a short summary of the remarks they are expected to give.",
@@ -178,7 +178,7 @@ export const guests = [
     photo: "/photos/guests/jacob-invited-guest.png",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSA.",
+      "this guest's background, role, and connection to Bor County and to BCSAR.",
     speechNote:
       "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
       "a short summary of the remarks they are expected to give.",
@@ -190,7 +190,7 @@ export const guests = [
     photo: "/photos/guests/peter-invited-guest.jpg",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSA.",
+      "this guest's background, role, and connection to Bor County and to BCSAR.",
     speechNote:
       "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
       "a short summary of the remarks they are expected to give.",
