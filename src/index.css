@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   BCSA DESIGN TOKENS
+   The ONE place to change the brand. Swap --bcsa-accent to retheme the site.
+   Default accent: warm ochre / soft gold (celebratory but restrained).
+   Alternative (institutional): deep slate-blue #243B53 / soft #35577A.
+   ========================================================================== */
+:root {
+  --bcsa-bg: #fafaf7; /* warm off-white / ivory */
+  --bcsa-surface: #f4f3ec; /* faintly raised panels */
+  --bcsa-ink: #15140f; /* near-black charcoal */
+  --bcsa-muted: #6b675e; /* warm grey */
+  --bcsa-hairline: #e4e1d8; /* very light warm grey */
+  --bcsa-accent: #a8762e; /* warm ochre / soft gold */
+  --bcsa-accent-soft: #c69749; /* lighter accent for hover/highlight */
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bcsa-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bcsa-bg);
+  color: var(--bcsa-ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Visible, on-brand focus state for keyboard users (accessibility). */
+:focus-visible {
+  outline: 2px solid var(--bcsa-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Restrained, brand-tinted text selection. */
+::selection {
+  background: var(--bcsa-accent);
+  color: var(--bcsa-bg);
+}
+
+/* ----------------------------------------------------------------------------
+   Scroll-snap "slide deck" behaviour. The deck container is a full-height,
+   vertically snapping scroller; each <Section> is a snap stop.
+   -------------------------------------------------------------------------- */
+.bcsa-deck {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox — hide the native scrollbar */
+}
+.bcsa-deck::-webkit-scrollbar {
+  display: none; /* WebKit — hide the native scrollbar */
+}
+.bcsa-snap {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Thin top reading-progress bar fill (width is set inline from scroll state). */
+.bcsa-progress {
+  background: linear-gradient(90deg, var(--bcsa-accent), var(--bcsa-accent-soft));
+}
+
+/* Gold shimmer used ONLY on the Cover / Closing BCSA mark (the one flourish). */
+.bcsa-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--bcsa-ink) 30%,
+    var(--bcsa-accent-soft) 50%,
+    var(--bcsa-ink) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ----------------------------------------------------------------------------
+   Reduced motion: disable the deck's smooth scrolling and any shimmer so the
+   site is calm and accessible for users who request it.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  .bcsa-deck {
+    scroll-behavior: auto;
+  }
+  .bcsa-shimmer {
+    animation: none !important;
+    -webkit-text-fill-color: var(--bcsa-ink);
+    color: var(--bcsa-ink);
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
