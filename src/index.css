@@ -70,13 +70,15 @@ body {
   background: linear-gradient(90deg, var(--bcsa-accent), var(--bcsa-accent-soft));
 }
 
-/* Gold shimmer used ONLY on the Cover / Closing BCSA mark (the one flourish). */
+/* Gold shimmer used ONLY on the Cover / Closing BCSA mark (the one flourish).
+   These slides are dark (ink), so the gradient stays in the gold family — a
+   warm ochre base with a brighter gold sweep — to keep every letter visible. */
 .bcsa-shimmer {
   background: linear-gradient(
     100deg,
-    var(--bcsa-ink) 30%,
-    var(--bcsa-accent-soft) 50%,
-    var(--bcsa-ink) 70%
+    var(--bcsa-accent) 30%,
+    #ecd9ab 50%,
+    var(--bcsa-accent) 70%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -96,8 +98,8 @@ body {
   }
   .bcsa-shimmer {
     animation: none !important;
-    -webkit-text-fill-color: var(--bcsa-ink);
-    color: var(--bcsa-ink);
+    -webkit-text-fill-color: var(--bcsa-accent-soft);
+    color: var(--bcsa-accent-soft);
   }
   *,
   *::before,
