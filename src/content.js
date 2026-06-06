@@ -44,52 +44,88 @@ export const site = {
  * ------------------------------------------------------------------------- */
 export const missionVision = {
   mission:
-    "PLACEHOLDER mission statement — a clear, single-paragraph expression of " +
-    "why BCSA exists and what it commits to doing for its members.",
+    "The Bor County Students' Association (BCSA) exists to unite Bor students " +
+    "through inclusive leadership, promote academic excellence, safeguard student " +
+    "welfare, preserve cultural heritage, and foster peace and collaboration within " +
+    "Rwanda and beyond.",
   vision:
-    "PLACEHOLDER vision statement — a forward-looking description of the future " +
-    "BCSA is working to create for Bor County students.",
+    "To build a united, empowered, and purpose-driven Bor student community in " +
+    "Rwanda that excels academically, preserves cultural identity, promotes peace, " +
+    "and supports the holistic welfare of all its members.",
 };
 
 /* ---------------------------------------------------------------------------
- *  OBJECTIVES — what the new leadership aims to implement this term.
- *  Recommended: 4–6 items.
+ *  OBJECTIVES / STRATEGIC PRIORITIES — from the BCSA Leadership Manifesto.
+ *  Each item: { id, title, commitments: [...], focus }.
+ *  Shown one-per-slide in a carousel on the Objectives section.
  * ------------------------------------------------------------------------- */
 export const objectives = [
   {
     id: 1,
-    title: "PLACEHOLDER objective one",
-    detail:
-      "PLACEHOLDER detail — a sentence or two describing this objective and the " +
-      "outcome it is meant to deliver.",
+    title: "Peacebuilding and Unity as a Foundation",
+    commitments: [
+      "Promote dialogue, tolerance, and mutual respect among Bor students.",
+      "Actively engage in peacebuilding initiatives with neighboring student and community groups.",
+      "Establish conflict-resolution mechanisms to address misunderstandings and disputes peacefully.",
+      "Use cultural and social events as platforms for reconciliation and unity.",
+    ],
+    focus:
+      "A neutral, inclusive platform that prioritizes peace over division and collective progress over individual differences.",
   },
   {
     id: 2,
-    title: "PLACEHOLDER objective two",
-    detail:
-      "PLACEHOLDER detail — a sentence or two describing this objective and the " +
-      "outcome it is meant to deliver.",
+    title: "Academic Excellence and Educational Support",
+    commitments: [
+      "Establish an academic support program, including peer mentorship, tutoring, and academic guidance.",
+      "Create a platform for sharing academic opportunities, scholarships, internships, and resources.",
+      "Support students facing tuition-related challenges or delays through financial assistance and referrals.",
+      "Promote a culture of discipline, excellence, and accountability in academics.",
+    ],
+    focus: "No Bor student should struggle academically in isolation.",
   },
   {
     id: 3,
-    title: "PLACEHOLDER objective three",
-    detail:
-      "PLACEHOLDER detail — a sentence or two describing this objective and the " +
-      "outcome it is meant to deliver.",
+    title: "Comprehensive Student Welfare and Protection",
+    commitments: [
+      "Address welfare concerns, including tuition, rent, health, and emergency needs.",
+      "Support students facing legal or criminal-related challenges through guidance and mediation where appropriate.",
+      "Conduct regular welfare check-ins and student visits.",
+      "Establish a welfare desk or committee to respond promptly to student needs.",
+    ],
+    focus: "A student who is safe, supported, and stable is empowered to succeed.",
   },
   {
     id: 4,
-    title: "PLACEHOLDER objective four",
-    detail:
-      "PLACEHOLDER detail — a sentence or two describing this objective and the " +
-      "outcome it is meant to deliver.",
+    title: "Inclusion, Representation, and Communication",
+    commitments: [
+      "Ensure comprehensive registration and inclusion of all Bor students across institutions.",
+      "Strengthen internal communication channels for timely information sharing.",
+      "Promote participatory leadership and member engagement in decision-making.",
+      "Uphold transparency and accountability in leadership actions.",
+    ],
+    focus: "Leadership that listens builds trust and unity.",
   },
   {
     id: 5,
-    title: "PLACEHOLDER objective five",
-    detail:
-      "PLACEHOLDER detail — a sentence or two describing this objective and the " +
-      "outcome it is meant to deliver.",
+    title: "Cultural Preservation and Identity Promotion",
+    commitments: [
+      "Organize cultural events showcasing Bor traditions, values, and attire.",
+      "Encourage the use of cultural costumes during official events.",
+      "Use cultural activities to foster unity, pride, and intercultural understanding.",
+      "Preserve cultural values while embracing diversity and mutual respect.",
+    ],
+    focus: "Our culture connects our past, present, and future.",
+  },
+  {
+    id: 6,
+    title: "Sports, Talent Development, and Well-being",
+    commitments: [
+      "Support student participation in sports and recreational activities.",
+      "Use sports as a platform for unity, health, and positive representation.",
+      "Identify and nurture talents within the Bor student community.",
+      "Collaborate with other student associations through sports engagements.",
+    ],
+    focus: "Strong bodies and creative minds build strong communities.",
   },
 ];
 
