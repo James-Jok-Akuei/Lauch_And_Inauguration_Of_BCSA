@@ -140,7 +140,7 @@ export const leadership = [
   { id: "l1", name: "Akech Majur Ngor", position: "Chairman", photo: "/photos/leadership/akech-president.jpg" },
   { id: "l2", name: "Mabiei Deng Ayuen", position: "Deputy Chairman", photo: portrait("Deputy Chairman") },
   { id: "l3", name: "Jok Dut Akuei", position: "Speaker", photo: "/photos/leadership/jok-speaker.jpg" },
-  { id: "l4", name: "Teta", position: "General Secretary", photo: "/photos/leadership/teta-general-secretary.png" },
+  { id: "l4", name: "Nyantet Kuol Reech", position: "General Secretary", photo: "/photos/leadership/teta-general-secretary.png" },
   { id: "l5", name: "Reng Jok Manyok", position: "Deputy Secretary", photo: portrait("Deputy Secretary") },
   { id: "l6", name: "Athiak", position: "Finance Secretary", photo: "/photos/leadership/athiak-finance.jpg" },
   { id: "l7", name: "Achol Akuei Deng", position: "Deputy Finance", photo: portrait("Deputy Finance") },
