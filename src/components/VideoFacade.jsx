@@ -14,7 +14,7 @@ export default function VideoFacade({ youtubeId, title }) {
   const src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
 
   return (
-    <div className="group relative aspect-video w-full overflow-hidden bg-ink">
+    <div className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-ink shadow-[0_22px_48px_-24px_rgba(21,20,15,0.5)] ring-1 ring-black/10">
       {active ? (
         <iframe
           className="absolute inset-0 h-full w-full"

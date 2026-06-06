@@ -58,7 +58,7 @@ const Culture = forwardRef(function Culture(_props, ref) {
  * Height is viewport-based so a pair always fits neatly within the slide. */
 function Tile({ item }) {
   return (
-    <figure className="group relative h-[48vh] w-full overflow-hidden bg-ink sm:h-[56vh] lg:h-[60vh]">
+    <figure className="group relative h-[48vh] w-full overflow-hidden rounded-2xl bg-ink shadow-[0_22px_48px_-24px_rgba(21,20,15,0.5)] ring-1 ring-black/10 sm:h-[56vh] lg:h-[60vh]">
       <img
         src={item.photo}
         alt={item.caption || item.title}
