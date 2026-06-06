@@ -11,7 +11,7 @@ import { leadership } from "../content.js";
  * Gentle autoplay is enabled (pauses on hover/focus/reduced-motion). */
 const Leadership = forwardRef(function Leadership(_props, ref) {
   return (
-    <Section ref={ref} id="leadership" label="Leadership Board">
+    <Section ref={ref} id="leadership" label="Leadership Board" watermark>
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
