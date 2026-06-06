@@ -259,8 +259,11 @@ export const videos = [
  *  CLOSING — thank-you / closing slide copy and minimal credits.
  * ------------------------------------------------------------------------- */
 export const closing = {
-  message: "PLACEHOLDER closing message — a short word of thanks to all in attendance.",
-  credits: "PLACEHOLDER — organised by the BCSA Launch Committee",
+  message:
+    "To our honoured guests, leaders, and members — thank you for standing with " +
+    "us as we begin this journey together. Your presence marks the start of a " +
+    "united, empowered, and purpose-driven Bor student community in Rwanda.",
+  credits: "Launch & Inauguration · 13 June 2026 · M Hotel",
 };
 
 /* ---------------------------------------------------------------------------
