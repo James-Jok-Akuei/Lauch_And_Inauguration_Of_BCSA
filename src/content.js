@@ -137,9 +137,9 @@ export const objectives = [
 // Members awaiting a photo use the neutral `portrait()` placeholder for now —
 // drop their image in that folder and swap the `photo` value to replace it.
 export const leadership = [
-  { id: "l1", name: "Jacob Akech Majur Ngor", position: "Chairman", photo: "/photos/leadership/akech-president.jpg" },
+  { id: "l1", name: "Akech Majur Ngor", position: "Chairman", photo: "/photos/leadership/akech-president.jpg" },
   { id: "l2", name: "Mabiei Deng Ayuen", position: "Deputy Chairman", photo: portrait("Deputy Chairman") },
-  { id: "l3", name: "James Jok Dut Akuei", position: "Speaker", photo: "/photos/leadership/jok-speaker.jpg" },
+  { id: "l3", name: "Jok Dut Akuei", position: "Speaker", photo: "/photos/leadership/jok-speaker.jpg" },
   { id: "l4", name: "Teta", position: "General Secretary", photo: "/photos/leadership/teta-general-secretary.png" },
   { id: "l5", name: "Reng Jok Manyok", position: "Deputy Secretary", photo: portrait("Deputy Secretary") },
   { id: "l6", name: "Athiak", position: "Finance Secretary", photo: "/photos/leadership/athiak-finance.jpg" },
