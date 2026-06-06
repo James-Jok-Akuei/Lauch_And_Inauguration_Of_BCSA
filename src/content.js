@@ -142,7 +142,8 @@ export const leadership = [
   { id: "l4", name: "Athiak", position: "Finance Secretary", photo: "/photos/leadership/athiak-finance.jpg" },
   { id: "l5", name: "Agau", position: "Academic Lead", photo: "/photos/leadership/agau-academic-lead.png" },
   { id: "l6", name: "Achol", position: "Cultural Lead", photo: "/photos/leadership/achol-cultural-lead.png" },
-  { id: "l7", name: "Shushu", position: "PLACEHOLDER — position", photo: "/photos/leadership/shushu.png" },
+  { id: "l7", name: "Jok Maker Kur", position: "Cultural Lead", photo: "/photos/leadership/jok-maker-kur-Culture.png" },
+  { id: "l8", name: "Shushu", position: "PLACEHOLDER — position", photo: "/photos/leadership/shushu.png" },
 ];
 
 /* ---------------------------------------------------------------------------
