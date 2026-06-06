@@ -247,6 +247,9 @@ export const culture = {
     { id: "cg13", title: "Adorned for the Dance", photo: "/photos/culture/beads-dress.png" },
     { id: "cg11", title: "Life in the Cattle Camp", photo: "/photos/culture/cattle-sacred.jpeg" },
     { id: "cg12", title: "Home & Homestead", photo: "/photos/culture/homestead.jpeg" },
+    { id: "cg14", title: "Dressed for the Dance", photo: "/photos/culture/ig-6.jpg" },
+    { id: "cg15", title: "Sounding the Horn", photo: "/photos/culture/ig-7.jpg" },
+    { id: "cg16", title: "Colours of Celebration", photo: "/photos/culture/ig-8.jpg" },
   ],
 };
 
