@@ -149,7 +149,6 @@ export const leadership = [
   { id: "l9", name: "Agau Kuol Guel", position: "Academic Lead", photo: "/photos/leadership/agau-academic-lead.png" },
   { id: "l10", name: "Achol Panchol Kou", position: "Cultural Lead", photo: "/photos/leadership/achol-cultural-lead.png" },
   { id: "l11", name: "Jok Maker Kur", position: "Vice Cultural Lead", photo: "/photos/leadership/jok-maker-kur-Culture.png" },
-  { id: "l12", name: "Shushu", position: "PLACEHOLDER — position", photo: "/photos/leadership/shushu.png" },
 ];
 
 /* ---------------------------------------------------------------------------
