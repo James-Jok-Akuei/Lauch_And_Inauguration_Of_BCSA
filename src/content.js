@@ -161,8 +161,8 @@ export const leadership = [
 export const guests = [
   {
     id: "g1",
-    name: "Mayol",
-    title: "Guest of Honour",
+    name: "Mr. Mayol Mach Garang",
+    title: "Invited Guest",
     photo: "/photos/guests/mayol-guest-of-honor.jpg",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
@@ -173,8 +173,8 @@ export const guests = [
   },
   {
     id: "g2",
-    name: "Jacob",
-    title: "Invited Guest",
+    name: "Jacob Manyuon Deng",
+    title: "Guest of Honor",
     photo: "/photos/guests/jacob-invited-guest.png",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
@@ -185,8 +185,8 @@ export const guests = [
   },
   {
     id: "g3",
-    name: "Peter",
-    title: "Invited Guest",
+    name: "Peter Lual Reech Deng",
+    title: "Chief Guest",
     photo: "/photos/guests/peter-invited-guest.jpg",
     bio:
       "PLACEHOLDER longer biography for the detail page — several sentences about " +
