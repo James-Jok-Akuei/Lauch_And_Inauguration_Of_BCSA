@@ -31,7 +31,7 @@ const Section = forwardRef(function Section(
           src={site.logo}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(88vw,46rem)] max-w-none -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.07] blur-[3px] mix-blend-multiply"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover opacity-[0.06] blur-[4px] mix-blend-multiply"
         />
       )}
       <div className="relative z-10 mx-auto w-full max-w-content px-6 py-20 sm:px-10 lg:px-16">
