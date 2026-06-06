@@ -1,23 +1,25 @@
 import { forwardRef } from "react";
-import { site } from "../content.js";
 
 /* Section — a full-viewport "slide" and scroll-snap stop.
  * Every top-level section of the deck is wrapped in this so they share the
  * same height, snapping, padding, and content max-width / vertical rhythm.
  *
  * Props:
- *   id        — anchor id (matches the dot-nav)
- *   label     — accessible region label
- *   tone      — "default" (ivory) or "ink" (charcoal slide, used for Cover/Closing)
- *   watermark — when true, render a large, faint, blurred BCSA emblem behind the
- *               content (used on the Leadership and Guests sections)
+ *   id          — anchor id (matches the dot-nav)
+ *   label       — accessible region label
+ *   tone        — "default" (ivory) or "ink" (charcoal, used for Cover/Closing)
+ *   transparent — omit the section background so a shared backdrop behind it
+ *                 (e.g. the Leadership+Guests emblem watermark) shows through
  */
 const Section = forwardRef(function Section(
-  { id, label, tone = "default", watermark = false, className = "", children },
+  { id, label, tone = "default", transparent = false, className = "", children },
   ref
 ) {
-  const toneClass =
-    tone === "ink" ? "bg-ink text-bg" : "bg-bg text-ink";
+  const toneClass = transparent
+    ? "z-10 text-ink"
+    : tone === "ink"
+    ? "bg-ink text-bg"
+    : "bg-bg text-ink";
 
   return (
     <section
@@ -26,14 +28,6 @@ const Section = forwardRef(function Section(
       aria-label={label}
       className={`bcsa-snap relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden ${toneClass} ${className}`}
     >
-      {watermark && (
-        <img
-          src={site.logo}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover opacity-[0.06] blur-[4px] mix-blend-multiply"
-        />
-      )}
       <div className="relative z-10 mx-auto w-full max-w-content px-6 py-20 sm:px-10 lg:px-16">
         {children}
       </div>

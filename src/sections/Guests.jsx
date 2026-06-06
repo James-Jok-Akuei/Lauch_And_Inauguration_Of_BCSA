@@ -11,7 +11,7 @@ import { guests } from "../content.js";
  * (/guests/:id) with a fuller bio and notes about their speech. */
 const Guests = forwardRef(function Guests(_props, ref) {
   return (
-    <Section ref={ref} id="guests" label="Invited Guests" watermark>
+    <Section ref={ref} id="guests" label="Invited Guests" transparent>
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

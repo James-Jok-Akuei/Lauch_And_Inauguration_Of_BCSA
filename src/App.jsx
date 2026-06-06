@@ -3,6 +3,7 @@ import { useDeck } from "./hooks/useDeck.js";
 import ProgressBar from "./components/ProgressBar.jsx";
 import TopNav from "./components/TopNav.jsx";
 import SlideStepper from "./components/SlideStepper.jsx";
+import Watermark from "./components/Watermark.jsx";
 import { sections as sectionMeta } from "./content.js";
 
 import Cover from "./sections/Cover.jsx";
@@ -31,6 +32,11 @@ const SECTIONS = [
  * dot-navigation legible over dark backgrounds. */
 const INK_SLIDES = new Set([0, SECTIONS.length - 1]);
 
+/* Leadership + Guests are adjacent and share ONE emblem watermark spanning
+ * both, so they're grouped together behind a single backdrop. */
+const LEAD_IDX = sectionMeta.findIndex((s) => s.id === "leadership");
+const GUEST_IDX = sectionMeta.findIndex((s) => s.id === "guests");
+
 export default function App() {
   const { deckRef, sectionRefs, active, progress, goTo } = useDeck(SECTIONS.length);
   const tone = INK_SLIDES.has(active) ? "ink" : "default";
@@ -58,9 +64,28 @@ export default function App() {
 
       {/* The scroll-snap deck. Each section is a full-viewport snap stop. */}
       <main ref={deckRef} className="bcsa-deck">
-        {SECTIONS.map((SectionComp, i) => (
-          <SectionComp key={sectionMeta[i].id} ref={(el) => (sectionRefs.current[i] = el)} />
-        ))}
+        {SECTIONS.map((SectionComp, i) => {
+          // Guests is rendered inside the Leadership group below — skip here.
+          if (i === GUEST_IDX) return null;
+
+          const node = (
+            <SectionComp key={sectionMeta[i].id} ref={(el) => (sectionRefs.current[i] = el)} />
+          );
+          if (i !== LEAD_IDX) return node;
+
+          // Leadership + Guests share ONE emblem watermark spanning both.
+          const GuestsComp = SECTIONS[GUEST_IDX];
+          return (
+            <div key="leadership-guests" className="relative bg-bg">
+              <Watermark />
+              {node}
+              <GuestsComp
+                key={sectionMeta[GUEST_IDX].id}
+                ref={(el) => (sectionRefs.current[GUEST_IDX] = el)}
+              />
+            </div>
+          );
+        })}
       </main>
     </>
   );
