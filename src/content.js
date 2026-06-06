@@ -251,6 +251,13 @@ export const culture = {
     { id: "cg15", title: "Sounding the Horn", photo: "/photos/culture/ig-7.jpg" },
     { id: "cg16", title: "Colours of Celebration", photo: "/photos/culture/ig-8.jpg" },
     { id: "cg17", title: "A Child of the Cattle Camp", photo: "/photos/culture/kid-removing-cowdug.png" },
+    { id: "cg18", title: "Village Life", photo: "/photos/culture/village-life.jpeg" },
+    { id: "cg19", title: "Homeward at Golden Hour", photo: "/photos/culture/ig-9.jpeg" },
+    { id: "cg20", title: "Gathered Beneath the Baobab", photo: "/photos/culture/togetherness.jpeg" },
+    { id: "cg21", title: "Drying the Harvest", photo: "/photos/culture/drying-shea-nuts.jpeg" },
+    { id: "cg22", title: "Driving the Herd Home", photo: "/photos/culture/ig-10.jpeg" },
+    { id: "cg23", title: "Building the Tukul", photo: "/photos/culture/ig-11.jpeg" },
+    { id: "cg24", title: "Carrying the Day's Load", photo: "/photos/culture/ig-12.jpeg" },
   ],
 };
 
