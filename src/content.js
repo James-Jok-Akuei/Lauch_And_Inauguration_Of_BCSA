@@ -250,6 +250,7 @@ export const culture = {
     { id: "cg14", title: "Dressed for the Dance", photo: "/photos/culture/ig-6.jpg" },
     { id: "cg15", title: "Sounding the Horn", photo: "/photos/culture/ig-7.jpg" },
     { id: "cg16", title: "Colours of Celebration", photo: "/photos/culture/ig-8.jpg" },
+    { id: "cg17", title: "A Child of the Cattle Camp", photo: "/photos/culture/kid-removing-cowdug.png" },
   ],
 };
 
