@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDeck } from "./hooks/useDeck.js";
 import ProgressBar from "./components/ProgressBar.jsx";
 import TopNav from "./components/TopNav.jsx";
@@ -33,6 +34,21 @@ const INK_SLIDES = new Set([0, SECTIONS.length - 1]);
 export default function App() {
   const { deckRef, sectionRefs, active, progress, goTo } = useDeck(SECTIONS.length);
   const tone = INK_SLIDES.has(active) ? "ink" : "default";
+
+  // When returning from a guest detail page, jump straight back to the section
+  // the visitor came from (set in sessionStorage on the way out) instead of
+  // landing on the cover. Runs once on mount and then clears the flag.
+  useEffect(() => {
+    const target = sessionStorage.getItem("bcsa:returnSection");
+    if (!target) return;
+    sessionStorage.removeItem("bcsa:returnSection");
+    const idx = sectionMeta.findIndex((s) => s.id === target);
+    if (idx <= 0) return;
+    // Wait for layout, then snap directly to the section (no animation).
+    requestAnimationFrame(() => {
+      sectionRefs.current[idx]?.scrollIntoView({ block: "start", behavior: "instant" });
+    });
+  }, [sectionRefs]);
 
   return (
     <>

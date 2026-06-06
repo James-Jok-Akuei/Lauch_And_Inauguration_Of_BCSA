@@ -34,7 +34,11 @@ export default function GuestDetail() {
         {/* Header / back control */}
         <div className="flex items-center justify-between">
           <BackLink label="Back" />
-          <Link to="/" className="flex items-center gap-3">
+          <Link
+            to="/"
+            onClick={() => sessionStorage.removeItem("bcsa:returnSection")}
+            className="flex items-center gap-3"
+          >
             <Logo className="h-9 w-9" />
             <span className="font-display text-lg">{site.abbr}</span>
           </Link>

@@ -35,6 +35,7 @@ const Guests = forwardRef(function Guests(_props, ref) {
               <Link
                 to={`/guests/${guest.id}`}
                 aria-label={`View profile of ${guest.name}`}
+                onClick={() => sessionStorage.setItem("bcsa:returnSection", "guests")}
                 className="group mx-auto block w-full max-w-sm"
               >
                 <Portrait
@@ -52,6 +53,7 @@ const Guests = forwardRef(function Guests(_props, ref) {
                 </h3>
                 <Link
                   to={`/guests/${guest.id}`}
+                  onClick={() => sessionStorage.setItem("bcsa:returnSection", "guests")}
                   className="group mt-7 inline-flex items-center gap-2 font-sans text-sm font-medium uppercase tracking-widest2 text-ink"
                 >
                   <span className="border-b border-accent pb-1 transition-colors group-hover:text-accent">
