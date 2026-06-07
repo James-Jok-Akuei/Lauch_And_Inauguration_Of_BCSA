@@ -21,7 +21,7 @@ const Leadership = forwardRef(function Leadership(_props, ref) {
           <div>
             <Eyebrow>The New Executive</Eyebrow>
             <h2 className="mt-6 font-display text-display-md font-light leading-[1.05]">
-              Leadership Board
+              Leader Board of BCSAR
             </h2>
           </div>
           <p className="font-sans text-sm text-muted">
