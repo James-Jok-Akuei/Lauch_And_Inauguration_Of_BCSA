@@ -52,7 +52,7 @@ export default function ParticipantsPage() {
         <Group title="Universities" count={participants.universities.length} className="mt-14" />
         <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-3 lg:gap-x-6">
           {participants.universities.map((item) => (
-            <Card key={item.id} photo={item.photo} name={item.name} tag={item.abbr} />
+            <Card key={item.id} slug={item.slug} photo={item.photo} name={item.name} tag={item.abbr} />
           ))}
         </div>
 
@@ -64,7 +64,7 @@ export default function ParticipantsPage() {
         />
         <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
           {participants.associations.map((item) => (
-            <Card key={item.id} photo={item.photo} name={item.name} />
+            <Card key={item.id} slug={item.slug} photo={item.photo} name={item.name} />
           ))}
         </div>
 
@@ -90,11 +90,11 @@ function Group({ title, count, className = "" }) {
   );
 }
 
-/* A single participant card: framed image + name (and optional abbreviation). */
-function Card({ photo, name, tag }) {
+/* A single participant card — links to that group's gallery slideshow. */
+function Card({ slug, photo, name, tag }) {
   return (
-    <figure className="group">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface shadow-[0_18px_40px_-24px_rgba(21,20,15,0.4)] ring-1 ring-black/10">
+    <Link to={`/participants/${slug}`} aria-label={`View ${name} gallery`} className="group block">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface shadow-[0_18px_40px_-24px_rgba(21,20,15,0.4)] ring-1 ring-black/10 transition-shadow duration-500 group-hover:ring-accent/40">
         <img
           src={photo}
           alt={name}
@@ -102,6 +102,12 @@ function Card({ photo, name, tag }) {
           decoding="async"
           className="h-full w-full object-cover transition-transform duration-[1200ms] ease-editorial group-hover:scale-[1.05]"
         />
+        {/* Hover hint */}
+        <span className="pointer-events-none absolute inset-0 flex items-end justify-end p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="rounded-full bg-ink/80 px-3 py-1 font-sans text-[0.65rem] uppercase tracking-widest2 text-bg">
+            View gallery →
+          </span>
+        </span>
       </div>
       <figcaption className="mt-3">
         {tag && (
@@ -109,11 +115,11 @@ function Card({ photo, name, tag }) {
             {tag}
           </span>
         )}
-        <p className="mt-0.5 font-display text-base font-normal leading-tight text-ink">
+        <p className="mt-0.5 font-display text-base font-normal leading-tight text-ink transition-colors group-hover:text-accent">
           {name}
         </p>
       </figcaption>
-    </figure>
+    </Link>
   );
 }
 

@@ -347,11 +347,19 @@ export const videos = [
  *  PARTICIPANTS — invited universities (leadership representatives) and the
  *  associations / community cultural groups presenting speeches and dances.
  *
- *  IMAGES: placeholders for now. Drop real images in /public/photos/participants
- *  and set each `photo` — university campus/logo shots, or photos of the groups
- *  performing their speeches / cultural dances. Landscape (4:3) works best.
+ *  GALLERY IMAGES (per group): clicking a card opens that group's slideshow.
+ *  Just DROP image files into the group's folder — they're picked up
+ *  automatically (no code editing needed):
+ *
+ *      src/assets/participants/<slug>/
+ *
+ *  e.g. src/assets/participants/twic-east/  ->  the Twic East gallery.
+ *  Each group's `slug` below is its folder name. Any .jpg/.jpeg/.png/.webp
+ *  dropped in that folder appears in its slideshow, in filename order.
+ *
+ *  The `photo` field is the small card thumbnail (placeholder for now).
  * ------------------------------------------------------------------------- */
-// Placeholder image helpers (replace `photo` values with real files later).
+// Placeholder card-thumbnail helpers (replace `photo` values with real files later).
 const uniImg = (label) =>
   `https://placehold.co/600x450/f4f3ec/243b53?text=${encodeURIComponent(label)}`;
 const groupImg = (label) =>
@@ -362,28 +370,28 @@ export const participants = {
     "Universities and community associations joining the celebration to share " +
     "speeches and cultural performances.",
   universities: [
-    { id: "u1", name: "Mount Kenya University", abbr: "MKU", photo: uniImg("MKU") },
-    { id: "u2", name: "University of Kigali", abbr: "UOK", photo: uniImg("UOK") },
-    { id: "u3", name: "African Leadership University", abbr: "ALU", photo: uniImg("ALU") },
-    { id: "u4", name: "University of Rwanda", abbr: "UR", photo: uniImg("UR") },
-    { id: "u5", name: "Kigali Independent University", abbr: "ULK", photo: uniImg("ULK") },
-    { id: "u6", name: "UPI", abbr: "UPI", photo: uniImg("UPI") },
+    { id: "u1", slug: "mku", name: "Mount Kenya University", abbr: "MKU", photo: uniImg("MKU") },
+    { id: "u2", slug: "uok", name: "University of Kigali", abbr: "UOK", photo: uniImg("UOK") },
+    { id: "u3", slug: "alu", name: "African Leadership University", abbr: "ALU", photo: uniImg("ALU") },
+    { id: "u4", slug: "ur", name: "University of Rwanda", abbr: "UR", photo: uniImg("UR") },
+    { id: "u5", slug: "ulk", name: "Kigali Independent University", abbr: "ULK", photo: uniImg("ULK") },
+    { id: "u6", slug: "upi", name: "UPI", abbr: "UPI", photo: uniImg("UPI") },
   ],
   associations: [
-    { id: "a1", name: "South Sudanese Students' Association", photo: groupImg("South Sudanese SA") },
-    { id: "a2", name: "Twic Mayardit Students' Association", photo: groupImg("Twic Mayardit SA") },
-    { id: "a3", name: "Twic East Students' Association", photo: groupImg("Twic East SA") },
-    { id: "a4", name: "Madi Students' Association", photo: groupImg("Madi SA") },
-    { id: "a5", name: "Eastern Equatoria Representatives", photo: groupImg("Eastern Equatoria") },
-    { id: "a6", name: "Wau Cultural Group", photo: groupImg("Wau") },
-    { id: "a7", name: "Fashoda Cultural Group", photo: groupImg("Fashoda") },
-    { id: "a8", name: "Bari Cultural Group", photo: groupImg("Bari") },
-    { id: "a9", name: "RAM Cultural Group", photo: groupImg("RAM") },
-    { id: "a10", name: "Azande Cultural Group", photo: groupImg("Azande") },
-    { id: "a11", name: "Nuer Cultural Group", photo: groupImg("Nuer") },
-    { id: "a12", name: "Renk Students' Association", photo: groupImg("Renk SA") },
-    { id: "a13", name: "Pojulu Cultural Group", photo: groupImg("Pojulu") },
-    { id: "a14", name: "Aweil Cultural Group", photo: groupImg("Aweil") },
+    { id: "a1", slug: "south-sudanese", name: "South Sudanese Students' Association", photo: groupImg("South Sudanese SA") },
+    { id: "a2", slug: "twic-mayardit", name: "Twic Mayardit Students' Association", photo: groupImg("Twic Mayardit SA") },
+    { id: "a3", slug: "twic-east", name: "Twic East Students' Association", photo: groupImg("Twic East SA") },
+    { id: "a4", slug: "madi", name: "Madi Students' Association", photo: groupImg("Madi SA") },
+    { id: "a5", slug: "eastern-equatoria", name: "Eastern Equatoria Representatives", photo: groupImg("Eastern Equatoria") },
+    { id: "a6", slug: "wau", name: "Wau Cultural Group", photo: groupImg("Wau") },
+    { id: "a7", slug: "fashoda", name: "Fashoda Cultural Group", photo: groupImg("Fashoda") },
+    { id: "a8", slug: "bari", name: "Bari Cultural Group", photo: groupImg("Bari") },
+    { id: "a9", slug: "ram", name: "RAM Cultural Group", photo: groupImg("RAM") },
+    { id: "a10", slug: "azande", name: "Azande Cultural Group", photo: groupImg("Azande") },
+    { id: "a11", slug: "nuer", name: "Nuer Cultural Group", photo: groupImg("Nuer") },
+    { id: "a12", slug: "renk", name: "Renk Students' Association", photo: groupImg("Renk SA") },
+    { id: "a13", slug: "pojulu", name: "Pojulu Cultural Group", photo: groupImg("Pojulu") },
+    { id: "a14", slug: "aweil", name: "Aweil Cultural Group", photo: groupImg("Aweil") },
   ],
 };
 
