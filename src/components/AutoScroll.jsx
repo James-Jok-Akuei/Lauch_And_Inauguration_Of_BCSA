@@ -40,20 +40,24 @@ export default function AutoScroll({
     let last = null;
     let dir = 1; // 1 = down, -1 = up
     let holdUntil = 0;
+    let pos = el.scrollTop; // float accumulator (scrollTop itself rounds to ints)
     const step = (t) => {
       if (last === null) last = t;
       const dt = Math.min((t - last) / 1000, 0.05);
       last = t;
       const max = el.scrollHeight - el.clientHeight;
       if (max > 8 && t >= holdUntil) {
-        el.scrollTop += dir * pxPerSec * dt;
-        if (el.scrollTop >= max - 0.5) {
+        pos += dir * pxPerSec * dt;
+        if (pos >= max) {
+          pos = max;
           dir = -1;
           holdUntil = t + pauseMs;
-        } else if (el.scrollTop <= 0.5) {
+        } else if (pos <= 0) {
+          pos = 0;
           dir = 1;
           holdUntil = t + pauseMs;
         }
+        el.scrollTop = pos;
       }
       raf = requestAnimationFrame(step);
     };
