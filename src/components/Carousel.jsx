@@ -26,7 +26,6 @@ export default function Carousel({
   tone = "default",
 }) {
   const [index, setIndex] = useState(0);
-  const [hovering, setHovering] = useState(false);
   const reduce = useReducedMotion();
   const regionRef = useRef(null);
   const count = items.length;
@@ -36,12 +35,14 @@ export default function Carousel({
   const next = useCallback(() => go(index + 1), [go, index]);
   const prev = useCallback(() => go(index - 1), [go, index]);
 
-  // Gentle autoplay — disabled when hovering/focused or reduced-motion is on.
+  // Continuous autoplay — the slides always keep moving and never pause on
+  // hover or focus (sliding is the core experience). Only reduced-motion stops
+  // it, for accessibility. Manual arrows/dots/swipe still reposition it.
   useEffect(() => {
-    if (!autoPlay || reduce || hovering) return;
+    if (!autoPlay || reduce) return;
     const t = setInterval(() => setIndex((i) => (i + 1) % count), autoPlay);
     return () => clearInterval(t);
-  }, [autoPlay, reduce, hovering, count]);
+  }, [autoPlay, reduce, count]);
 
   // Keyboard navigation when the carousel is focused.
   const onKeyDown = (e) => {
@@ -73,10 +74,6 @@ export default function Carousel({
       aria-label={label}
       tabIndex={0}
       onKeyDown={onKeyDown}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-      onFocus={() => setHovering(true)}
-      onBlur={() => setHovering(false)}
       className="relative w-full outline-none"
     >
       {/* Viewport */}
