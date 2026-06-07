@@ -67,13 +67,13 @@ export default function ParticipantGallery() {
               autoPlay={4500}
               tone="default"
               renderItem={(img) => (
-                <div className="flex h-[60vh] w-full items-center justify-center overflow-hidden rounded-2xl bg-ink ring-1 ring-black/10">
+                <div className="h-[60vh] w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-black/10">
                   <img
                     src={img.url}
                     alt={group.name}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </div>
               )}
