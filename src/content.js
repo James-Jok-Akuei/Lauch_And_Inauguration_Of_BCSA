@@ -329,6 +329,7 @@ export const culture = {
     { id: "cg43", title: "Nyiir Bor — Daughters of Bor", photo: "/photos/culture/nyiir-bor.jpeg" },
     { id: "cg44", title: "Born to the Cattle", photo: "/photos/culture/wel-akau-family.jpeg" },
     { id: "cg45", title: "Dawn in the Cattle Camp", photo: "/photos/culture/shot-1.png" },
+    { id: "cg46", title: "Spirit of Celebration", photo: "/photos/culture/ig-22.jpg" },
   ],
 };
 
