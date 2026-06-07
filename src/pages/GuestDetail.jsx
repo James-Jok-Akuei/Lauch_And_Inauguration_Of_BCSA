@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Portrait from "../components/Portrait.jsx";
 import Eyebrow from "../components/Eyebrow.jsx";
 import Logo from "../components/Logo.jsx";
+import AutoScroll from "../components/AutoScroll.jsx";
 import { guests, site } from "../content.js";
 
 /* GUEST DETAIL — its own route at /guests/:id.
@@ -75,16 +76,18 @@ export default function GuestDetail() {
 
             <div className="mt-10 max-w-2xl">
               <h2 className="font-sans text-eyebrow uppercase text-muted">Biography</h2>
-              <div className="mt-4 space-y-4">
-                {guest.bio.split("\n\n").map((para, i) => (
-                  <p
-                    key={i}
-                    className="font-display text-xl font-light leading-relaxed text-ink"
-                  >
-                    {renderRich(para)}
-                  </p>
-                ))}
-              </div>
+              <AutoScroll className="mt-4 max-h-[56vh]">
+                <div className="space-y-4 pr-2">
+                  {guest.bio.split("\n\n").map((para, i) => (
+                    <p
+                      key={i}
+                      className="font-display text-xl font-light leading-relaxed text-ink"
+                    >
+                      {renderRich(para)}
+                    </p>
+                  ))}
+                </div>
+              </AutoScroll>
             </div>
 
             <div className="mt-10 max-w-2xl border-l-2 border-accent pl-6">

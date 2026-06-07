@@ -65,6 +65,14 @@ body {
   scroll-snap-stop: always;
 }
 
+/* Hide the scrollbar on auto-scrolling regions (still scrollable). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Thin top reading-progress bar fill (width is set inline from scroll state). */
 .bcsa-progress {
   background: linear-gradient(90deg, var(--bcsa-accent), var(--bcsa-accent-soft));
