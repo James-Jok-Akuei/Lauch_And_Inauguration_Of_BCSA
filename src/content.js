@@ -162,7 +162,7 @@ export const guests = [
   {
     id: "g1",
     name: "Mr. Mayol Mach Garang",
-    title: "Patron · Invited Guest",
+    title: "Special Guest",
     photo: "/photos/guests/mayol-guest-of-honor.jpg",
     bio:
       "Mayol Mach Garang is a distinguished Information and Communication " +
@@ -172,11 +172,11 @@ export const guests = [
       "East Africa. Based in Kigali, Rwanda, he represents South Sudan within the " +
       "organisation and contributes to regional efforts to strengthen connectivity " +
       "and technological development. A proud son of Bor County and a respected " +
-      "member of our community, he joins us today not only as a guest, but as the " +
-      "Patron of this new association.",
+      "member of our community, he joins us today as a Special Guest of this new " +
+      "association.",
     speechNote:
-      "As Patron and an elder of the community, Mr. Garang will provide guidance, " +
-      "mentorship, and oversight to ensure the association remains committed to its " +
+      "As a Special Guest and an elder of the community, Mr. Garang will offer " +
+      "guidance and encouragement to ensure the association remains committed to its " +
       "mission of serving and developing our community in a meaningful, dedicated way.",
   },
   {
