@@ -23,20 +23,36 @@ const Culture = forwardRef(function Culture(_props, ref) {
   return (
     <Section ref={ref} id="culture" label="Our Culture">
       <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div className="max-w-3xl">
-            <Eyebrow>Our Heritage</Eyebrow>
-            <h2 className="mt-6 font-display text-display-md font-light leading-[1.05]">
-              Our Culture
-            </h2>
-            <p className="mt-5 font-sans text-base font-light leading-relaxed text-muted">
-              {culture.intro}
-            </p>
-          </div>
-          <p className="font-sans text-sm text-muted">
-            {ALL.length} images · swipe or use arrows
-          </p>
+        <Eyebrow>Our Heritage</Eyebrow>
+        {/* Heading line: "Our Culture" (start) + a link to the Participants
+            section (end), on the same row. */}
+        <div className="mt-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3">
+          <h2 className="font-display text-display-md font-light leading-[1.05]">
+            Our Culture
+          </h2>
+          <button
+            type="button"
+            onClick={() =>
+              document
+                .getElementById("participants")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+            className="group inline-flex items-center gap-2 font-sans text-sm font-medium uppercase tracking-widest2 text-ink"
+          >
+            <span className="border-b border-accent pb-1 transition-colors group-hover:text-accent">
+              Universities &amp; Associations
+            </span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </button>
         </div>
+        <p className="mt-5 max-w-3xl font-sans text-base font-light leading-relaxed text-muted">
+          {culture.intro}
+        </p>
       </Reveal>
 
       <Reveal delay={0.1} className="mt-8 lg:mt-10">

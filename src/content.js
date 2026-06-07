@@ -300,6 +300,50 @@ export const videos = [
 ];
 
 /* ---------------------------------------------------------------------------
+ *  PARTICIPANTS — invited universities (leadership representatives) and the
+ *  associations / community cultural groups presenting speeches and dances.
+ *
+ *  IMAGES: placeholders for now. Drop real images in /public/photos/participants
+ *  and set each `photo` — university campus/logo shots, or photos of the groups
+ *  performing their speeches / cultural dances. Landscape (4:3) works best.
+ * ------------------------------------------------------------------------- */
+// Placeholder image helpers (replace `photo` values with real files later).
+const uniImg = (label) =>
+  `https://placehold.co/600x450/f4f3ec/243b53?text=${encodeURIComponent(label)}`;
+const groupImg = (label) =>
+  `https://placehold.co/600x450/15140f/c69749?text=${encodeURIComponent(label)}`;
+
+export const participants = {
+  intro:
+    "Universities and community associations joining the celebration to share " +
+    "speeches and cultural performances.",
+  universities: [
+    { id: "u1", name: "Mount Kenya University", abbr: "MKU", photo: uniImg("MKU") },
+    { id: "u2", name: "University of Kigali", abbr: "UOK", photo: uniImg("UOK") },
+    { id: "u3", name: "African Leadership University", abbr: "ALU", photo: uniImg("ALU") },
+    { id: "u4", name: "University of Rwanda", abbr: "UR", photo: uniImg("UR") },
+    { id: "u5", name: "Kigali Independent University", abbr: "ULK", photo: uniImg("ULK") },
+    { id: "u6", name: "UPI", abbr: "UPI", photo: uniImg("UPI") },
+  ],
+  associations: [
+    { id: "a1", name: "South Sudanese Students' Association", photo: groupImg("South Sudanese SA") },
+    { id: "a2", name: "Twic Mayardit Students' Association", photo: groupImg("Twic Mayardit SA") },
+    { id: "a3", name: "Twic East Students' Association", photo: groupImg("Twic East SA") },
+    { id: "a4", name: "Madi Students' Association", photo: groupImg("Madi SA") },
+    { id: "a5", name: "Eastern Equatoria Representatives", photo: groupImg("Eastern Equatoria") },
+    { id: "a6", name: "Wau Cultural Group", photo: groupImg("Wau") },
+    { id: "a7", name: "Fashoda Cultural Group", photo: groupImg("Fashoda") },
+    { id: "a8", name: "Bari Cultural Group", photo: groupImg("Bari") },
+    { id: "a9", name: "RAM Cultural Group", photo: groupImg("RAM") },
+    { id: "a10", name: "Azande Cultural Group", photo: groupImg("Azande") },
+    { id: "a11", name: "Nuer Cultural Group", photo: groupImg("Nuer") },
+    { id: "a12", name: "Renk Students' Association", photo: groupImg("Renk SA") },
+    { id: "a13", name: "Pojulu Cultural Group", photo: groupImg("Pojulu") },
+    { id: "a14", name: "Aweil Cultural Group", photo: groupImg("Aweil") },
+  ],
+};
+
+/* ---------------------------------------------------------------------------
  *  CLOSING — thank-you / closing slide copy and minimal credits.
  * ------------------------------------------------------------------------- */
 export const closing = {
@@ -321,6 +365,7 @@ export const sections = [
   { id: "leadership", label: "Leadership" },
   { id: "guests", label: "Invited Guests" },
   { id: "culture", label: "Our Culture" },
+  { id: "participants", label: "Participants" },
   { id: "videos", label: "Videos" },
   { id: "closing", label: "Closing" },
 ];
