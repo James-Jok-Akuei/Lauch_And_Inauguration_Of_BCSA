@@ -4,7 +4,11 @@ import Eyebrow from "../components/Eyebrow.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Carousel from "../components/Carousel.jsx";
 import Portrait from "../components/Portrait.jsx";
+import { shuffle } from "../utils/shuffle.js";
 import { leadership } from "../content.js";
+
+// Randomize the leadership order on each page load.
+const LEADERS = shuffle(leadership);
 
 /* LEADERSHIP BOARD — carousel of the new executive.
  * Each slide is an editorial split: portrait beside a large name + position.
@@ -28,7 +32,7 @@ const Leadership = forwardRef(function Leadership(_props, ref) {
 
       <Reveal delay={0.1} className="mt-12">
         <Carousel
-          items={leadership}
+          items={LEADERS}
           label="Leadership board"
           autoPlay={5500}
           renderItem={(person) => (

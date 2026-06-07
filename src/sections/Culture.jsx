@@ -3,6 +3,7 @@ import Section from "../components/Section.jsx";
 import Eyebrow from "../components/Eyebrow.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Carousel from "../components/Carousel.jsx";
+import { shuffle } from "../utils/shuffle.js";
 import { culture } from "../content.js";
 
 /* OUR CULTURE — a display-only slideshow of Bor heritage.
@@ -14,16 +15,6 @@ import { culture } from "../content.js";
 // Combine the feature image with the gallery, shuffle into a random order
 // (reshuffled on each page load), then page through two images at a time.
 const ALL = [culture.feature, ...culture.gallery];
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
 const SHUFFLED = shuffle(ALL);
 const PAGES = [];
 for (let i = 0; i < SHUFFLED.length; i += 2) PAGES.push(SHUFFLED.slice(i, i + 2));

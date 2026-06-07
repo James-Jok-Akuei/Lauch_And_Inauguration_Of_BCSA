@@ -5,7 +5,11 @@ import Eyebrow from "../components/Eyebrow.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Carousel from "../components/Carousel.jsx";
 import Portrait from "../components/Portrait.jsx";
+import { shuffle } from "../utils/shuffle.js";
 import { guests } from "../content.js";
+
+// Randomize the guest order on each page load.
+const GUESTS = shuffle(guests);
 
 /* INVITED GUESTS — carousel of guests. Each slide links to a detail page
  * (/guests/:id) with a fuller bio and notes about their speech. */
@@ -28,7 +32,7 @@ const Guests = forwardRef(function Guests(_props, ref) {
 
       <Reveal delay={0.1} className="mt-12">
         <Carousel
-          items={guests}
+          items={GUESTS}
           label="Invited guests"
           autoPlay={6500}
           renderItem={(guest) => (
