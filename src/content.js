@@ -279,6 +279,12 @@ export const culture = {
     { id: "cg22", title: "Driving the Herd Home", photo: "/photos/culture/ig-10.jpeg" },
     { id: "cg23", title: "Building the Tukul", photo: "/photos/culture/ig-11.jpeg" },
     { id: "cg24", title: "Carrying the Day's Load", photo: "/photos/culture/ig-12.jpeg" },
+    { id: "cg25", title: "Daughter of the Cattle Camp", photo: "/photos/culture/ig-13.jpg" },
+    { id: "cg26", title: "Tending the Herd", photo: "/photos/culture/ig-14.jpg" },
+    { id: "cg27", title: "The Prized Ox", photo: "/photos/culture/ig-15.jpg" },
+    { id: "cg28", title: "Among the Herd", photo: "/photos/culture/ig-16.jpg" },
+    { id: "cg29", title: "Adorned in Beadwork", photo: "/photos/culture/beaded-corset.jpeg" },
+    { id: "cg30", title: "The Art of Beadwork", photo: "/photos/culture/dinka-people.jpeg" },
   ],
 };
 
