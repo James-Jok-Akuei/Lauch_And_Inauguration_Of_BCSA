@@ -75,9 +75,16 @@ export default function GuestDetail() {
 
             <div className="mt-10 max-w-2xl">
               <h2 className="font-sans text-eyebrow uppercase text-muted">Biography</h2>
-              <p className="mt-4 font-display text-2xl font-light leading-relaxed text-ink">
-                {renderRich(guest.bio)}
-              </p>
+              <div className="mt-4 space-y-4">
+                {guest.bio.split("\n\n").map((para, i) => (
+                  <p
+                    key={i}
+                    className="font-display text-xl font-light leading-relaxed text-ink"
+                  >
+                    {renderRich(para)}
+                  </p>
+                ))}
+              </div>
             </div>
 
             <div className="mt-10 max-w-2xl border-l-2 border-accent pl-6">

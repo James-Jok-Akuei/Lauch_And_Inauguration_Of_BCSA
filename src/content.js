@@ -184,17 +184,46 @@ export const guests = [
     name: "Eng. Jacob Manyuon Deng",
     title: "Guest of Honor",
     photo: "/photos/guests/jacob-invited-guest.png",
+    // Paragraphs are separated by "\n\n" and rendered as separate <p> blocks.
     bio:
-      "Eng. Jacob Manyuon Deng is a distinguished energy professional, currently " +
-      "serving as Regional Power Program Officer for Power and Trade at the Nile " +
-      "Equatorial Lakes Subsidiary Action Program Coordination Unit (NELSAP-CU) — " +
-      "the investment arm of the Nile Basin Initiative (NBI), based in Kigali, " +
-      "Rwanda. He leads and coordinates major regional energy projects, including " +
-      "cross-border power trade initiatives and the South Sudan–Uganda Power " +
-      "Interconnection Project (SUPIP), helping to strengthen energy cooperation " +
-      "and integration across East Africa. Eng. Manyuon is also pursuing a PhD at " +
-      "the University of Rwanda, reflecting his commitment to advancing research " +
-      "and innovation in the energy sector.",
+      "J. Manyuon Deng is a distinguished energy specialist with more than two " +
+      "decades of experience in the power and energy sector across Africa and " +
+      "beyond. He currently serves as the Regional Power Program Officer at the " +
+      "Nile Basin Initiative (NBI) under the Nile Equatorial Lakes Subsidiary " +
+      "Action Program (NELSAP), based in Kigali, Rwanda." +
+      "\n\n" +
+      "Throughout his career, Mr. Deng has worked with leading institutions, " +
+      "including GIBB International, the World Bank, and the South Sudan Electricity " +
+      "Corporation, contributing significantly to the development and management of " +
+      "power generation, transmission, and distribution systems. His extensive " +
+      "professional experience spans energy planning, infrastructure development, " +
+      "regional power integration, and utility management." +
+      "\n\n" +
+      "Mr. Deng holds a Master of Science (MSc) in Energy Management from the " +
+      "University of Nairobi, earned in 2014, and a Bachelor's Degree in Electrical " +
+      "and Electronic Engineering from the same institution. He is currently " +
+      "pursuing a Doctor of Philosophy (PhD) in Energy Studies at the African " +
+      "Centre of Excellence in Energy for Sustainable Development (ACE–ESD), " +
+      "University of Rwanda. In addition, he obtained an Advanced Certificate in " +
+      "Electricity Distribution Management (EDM) from Sweden." +
+      "\n\n" +
+      "Over the years, he has undertaken specialized training in power generation, " +
+      "transmission, and distribution across various regions of the world, " +
+      "enhancing his expertise in modern energy systems and utility operations. He " +
+      "has authored numerous articles published in both national and regional media " +
+      "outlets and has actively participated in international conferences and " +
+      "seminars, where he has consistently presented and advocated for South " +
+      "Sudan's energy development perspectives." +
+      "\n\n" +
+      "Beyond his professional engagements, Mr. Deng is passionate about advancing " +
+      "sustainable energy systems and expanding access to reliable electricity in " +
+      "South Sudan and the wider region. He has also contributed to academia as a " +
+      "part-time lecturer in the Faculty of Engineering at the University of Juba, " +
+      "mentoring and inspiring the next generation of engineering professionals." +
+      "\n\n" +
+      "His commitment to regional cooperation, energy sector development, and " +
+      "knowledge sharing continues to make him a respected voice in the energy " +
+      "industry.",
     speechNote:
       "Eng. Manyuon Deng joins the launch as our Guest of Honor.",
   },
