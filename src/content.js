@@ -365,7 +365,6 @@ export const sections = [
   { id: "leadership", label: "Leadership" },
   { id: "guests", label: "Invited Guests" },
   { id: "culture", label: "Our Culture" },
-  { id: "participants", label: "Participants" },
   { id: "videos", label: "Videos" },
   { id: "closing", label: "Closing" },
 ];

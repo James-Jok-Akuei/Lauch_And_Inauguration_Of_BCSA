@@ -12,7 +12,6 @@ import Objectives from "./sections/Objectives.jsx";
 import Leadership from "./sections/Leadership.jsx";
 import Guests from "./sections/Guests.jsx";
 import Culture from "./sections/Culture.jsx";
-import Participants from "./sections/Participants.jsx";
 import Videos from "./sections/Videos.jsx";
 import Closing from "./sections/Closing.jsx";
 
@@ -25,7 +24,6 @@ const SECTIONS = [
   Leadership,
   Guests,
   Culture,
-  Participants,
   Videos,
   Closing,
 ];

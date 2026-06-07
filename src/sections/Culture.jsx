@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { Link } from "react-router-dom";
 import Section from "../components/Section.jsx";
 import Eyebrow from "../components/Eyebrow.jsx";
 import Reveal from "../components/Reveal.jsx";
@@ -30,13 +31,9 @@ const Culture = forwardRef(function Culture(_props, ref) {
           <h2 className="font-display text-display-md font-light leading-[1.05]">
             Our Culture
           </h2>
-          <button
-            type="button"
-            onClick={() =>
-              document
-                .getElementById("participants")
-                ?.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
+          <Link
+            to="/participants"
+            onClick={() => sessionStorage.setItem("bcsa:returnSection", "culture")}
             className="group inline-flex items-center gap-2 font-sans text-sm font-medium uppercase tracking-widest2 text-ink"
           >
             <span className="border-b border-accent pb-1 transition-colors group-hover:text-accent">
@@ -48,7 +45,7 @@ const Culture = forwardRef(function Culture(_props, ref) {
             >
               →
             </span>
-          </button>
+          </Link>
         </div>
         <p className="mt-5 max-w-3xl font-sans text-base font-light leading-relaxed text-muted">
           {culture.intro}
