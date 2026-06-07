@@ -162,26 +162,41 @@ export const guests = [
   {
     id: "g1",
     name: "Mr. Mayol Mach Garang",
-    title: "Invited Guest",
+    title: "Patron · Invited Guest",
     photo: "/photos/guests/mayol-guest-of-honor.jpg",
     bio:
-      "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSAR.",
+      "Mayol Mach Garang is a distinguished Information and Communication " +
+      "Technology (ICT) professional, currently serving as Senior Officer, ICT at " +
+      "the East African Communications Organisation (EACO) — a regional body " +
+      "dedicated to advancing communications and digital transformation across " +
+      "East Africa. Based in Kigali, Rwanda, he represents South Sudan within the " +
+      "organisation and contributes to regional efforts to strengthen connectivity " +
+      "and technological development. A proud son of Bor County and a respected " +
+      "member of our community, he joins us today not only as a guest, but as the " +
+      "Patron of this new association.",
     speechNote:
-      "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
-      "a short summary of the remarks they are expected to give.",
+      "As Patron and an elder of the community, Mr. Garang will provide guidance, " +
+      "mentorship, and oversight to ensure the association remains committed to its " +
+      "mission of serving and developing our community in a meaningful, dedicated way.",
   },
   {
     id: "g2",
-    name: "Jacob Manyuon Deng",
+    name: "Eng. Jacob Manyuon Deng",
     title: "Guest of Honor",
     photo: "/photos/guests/jacob-invited-guest.png",
     bio:
-      "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSAR.",
+      "Eng. Jacob Manyuon Deng is a distinguished energy professional, currently " +
+      "serving as Regional Power Program Officer for Power and Trade at the Nile " +
+      "Equatorial Lakes Subsidiary Action Program Coordination Unit (NELSAP-CU) — " +
+      "the investment arm of the Nile Basin Initiative (NBI), based in Kigali, " +
+      "Rwanda. He leads and coordinates major regional energy projects, including " +
+      "cross-border power trade initiatives and the South Sudan–Uganda Power " +
+      "Interconnection Project (SUPIP), helping to strengthen energy cooperation " +
+      "and integration across East Africa. Eng. Manyuon is also pursuing a PhD at " +
+      "the University of Rwanda, reflecting his commitment to advancing research " +
+      "and innovation in the energy sector.",
     speechNote:
-      "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
-      "a short summary of the remarks they are expected to give.",
+      "Eng. Manyuon Deng joins the launch as our Guest of Honor.",
   },
   {
     id: "g3",
@@ -189,11 +204,17 @@ export const guests = [
     title: "Chief Guest",
     photo: "/photos/guests/peter-invited-guest.jpg",
     bio:
-      "PLACEHOLDER longer biography for the detail page — several sentences about " +
-      "this guest's background, role, and connection to Bor County and to BCSAR.",
+      "Peter Lual Reech Deng is the Founder and Managing Director of Africa World " +
+      "Books, a publishing company dedicated to promoting African literature, " +
+      "culture, and heritage. Driven by a deep love for Africa, he established the " +
+      "company to support African authors in publishing and distributing their " +
+      "works across Australia and the global diaspora. Through Africa World Books, " +
+      "he helps preserve African values, traditions, and history while educating " +
+      "both African communities and the wider Australian public about the richness " +
+      "of Africa's cultures and stories. His work continues to empower African " +
+      "writers and strengthen cultural connections across generations.",
     speechNote:
-      "PLACEHOLDER note about their address at the launch — theme, dedication, or " +
-      "a short summary of the remarks they are expected to give.",
+      "Peter Lual Reech Deng joins the launch as our Chief Guest.",
   },
 ];
 
