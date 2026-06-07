@@ -11,10 +11,22 @@ import { culture } from "../content.js";
  * Portrait imagery suits the source photography (cattle camps, portraits,
  * ceremonies). */
 
-// Combine the feature image with the gallery, then page through two at a time.
+// Combine the feature image with the gallery, shuffle into a random order
+// (reshuffled on each page load), then page through two images at a time.
 const ALL = [culture.feature, ...culture.gallery];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const SHUFFLED = shuffle(ALL);
 const PAGES = [];
-for (let i = 0; i < ALL.length; i += 2) PAGES.push(ALL.slice(i, i + 2));
+for (let i = 0; i < SHUFFLED.length; i += 2) PAGES.push(SHUFFLED.slice(i, i + 2));
 
 const Culture = forwardRef(function Culture(_props, ref) {
   return (
