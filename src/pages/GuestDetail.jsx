@@ -76,7 +76,7 @@ export default function GuestDetail() {
             <div className="mt-10 max-w-2xl">
               <h2 className="font-sans text-eyebrow uppercase text-muted">Biography</h2>
               <p className="mt-4 font-display text-2xl font-light leading-relaxed text-ink">
-                {guest.bio}
+                {renderRich(guest.bio)}
               </p>
             </div>
 
@@ -96,6 +96,20 @@ export default function GuestDetail() {
         </div>
       </div>
     </main>
+  );
+}
+
+/* Render bio text with simple emphasis: any segment wrapped in **double
+ * asterisks** is shown bold and gold-highlighted. Everything else is plain. */
+function renderRich(text) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-semibold text-accent">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      part
+    )
   );
 }
 

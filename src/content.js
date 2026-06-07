@@ -204,15 +204,16 @@ export const guests = [
     title: "Chief Guest",
     photo: "/photos/guests/peter-invited-guest.jpg",
     bio:
-      "Peter Lual Reech Deng is the Founder and Managing Director of Africa World " +
-      "Books, a publishing company dedicated to promoting African literature, " +
-      "culture, and heritage. Driven by a deep love for Africa, he established the " +
-      "company to support African authors in publishing and distributing their " +
-      "works across Australia and the global diaspora. Through Africa World Books, " +
-      "he helps preserve African values, traditions, and history while educating " +
-      "both African communities and the wider Australian public about the richness " +
-      "of Africa's cultures and stories. His work continues to empower African " +
-      "writers and strengthen cultural connections across generations.",
+      "Peter Lual Reech Deng is the Founder and Managing Director of " +
+      "**Africa World Books**, a publishing company dedicated to promoting African " +
+      "literature, culture, and heritage. Driven by a deep love for Africa, he " +
+      "established the company to support African authors in publishing and " +
+      "distributing their works across Australia and the global diaspora. Through " +
+      "**Africa World Books**, he helps preserve African values, traditions, and " +
+      "history while educating both African communities and the wider Australian " +
+      "public about the richness of Africa's cultures and stories. His work " +
+      "continues to empower African writers and strengthen cultural connections " +
+      "across generations.",
     speechNote:
       "Peter Lual Reech Deng joins the launch as our Chief Guest.",
   },
