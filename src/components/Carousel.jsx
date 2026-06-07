@@ -2,14 +2,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /* ============================================================================
- *  Carousel — reusable slideshow for Leadership & Invited Guests.
+ *  Carousel — reusable slideshow for Objectives, Leadership, Guests, Culture.
  * ----------------------------------------------------------------------------
- *  One slide per view. Supports:
+ *  One slide per view, with a SEAMLESS infinite loop: a clone of the first
+ *  slide is appended to the end, so advancing past the last slide flows
+ *  forward into the clone and then resets instantly to the real first slide —
+ *  no backward "rewind". Supports:
  *    • prev / next arrows
  *    • clickable dots
  *    • drag / swipe (pointer + touch) via Framer Motion
  *    • keyboard ←/→ when the carousel region is focused
- *    • optional gentle autoplay (pauses on hover, focus, and reduced-motion)
+ *    • continuous autoplay (never pauses; only reduced-motion disables it)
  *
  *  Props:
  *    items      — array of data
@@ -25,24 +28,54 @@ export default function Carousel({
   autoPlay = 0,
   tone = "default",
 }) {
+  // index ranges 0..count, where `count` points at the cloned first slide.
   const [index, setIndex] = useState(0);
+  // When false, the track jumps with no animation (used for the seamless reset).
+  const [animate, setAnimate] = useState(true);
   const reduce = useReducedMotion();
   const regionRef = useRef(null);
   const count = items.length;
 
   const onInk = tone === "ink";
-  const go = useCallback((i) => setIndex(((i % count) + count) % count), [count]);
-  const next = useCallback(() => go(index + 1), [go, index]);
-  const prev = useCallback(() => go(index - 1), [go, index]);
 
-  // Continuous autoplay — the slides always keep moving and never pause on
-  // hover or focus (sliding is the core experience). Only reduced-motion stops
-  // it, for accessibility. Manual arrows/dots/swipe still reposition it.
+  // Display track = all slides + a clone of the first for the seamless wrap.
+  const display = count > 0 ? [...items, items[0]] : items;
+
+  const next = useCallback(() => setIndex((i) => i + 1), []);
+  const prev = useCallback(() => {
+    setIndex((i) => {
+      if (i <= 0) {
+        setAnimate(false); // instant wrap backward to the last slide
+        return count - 1;
+      }
+      return i - 1;
+    });
+  }, [count]);
+  const go = useCallback((i) => setIndex(i), []);
+
+  // Continuous autoplay — always moving; only reduced-motion stops it.
   useEffect(() => {
-    if (!autoPlay || reduce) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % count), autoPlay);
+    if (!autoPlay || reduce || count <= 1) return;
+    const t = setInterval(() => setIndex((i) => i + 1), autoPlay);
     return () => clearInterval(t);
   }, [autoPlay, reduce, count]);
+
+  // After the forward animation lands on the clone, snap back to the real
+  // first slide instantly (invisible, since the clone is identical to it).
+  const onTrackAnimationComplete = () => {
+    if (index >= count) {
+      setAnimate(false);
+      setIndex(0);
+    }
+  };
+
+  // Re-enable animation on the next frame after any instant jump.
+  useEffect(() => {
+    if (!animate) {
+      const id = requestAnimationFrame(() => setAnimate(true));
+      return () => cancelAnimationFrame(id);
+    }
+  }, [animate, index]);
 
   // Keyboard navigation when the carousel is focused.
   const onKeyDown = (e) => {
@@ -61,6 +94,9 @@ export default function Carousel({
     if (info.offset.x < -threshold || info.velocity.x < -400) next();
     else if (info.offset.x > threshold || info.velocity.x > 400) prev();
   };
+
+  // The dot that reads as active (the clone position maps back to the first).
+  const activeDot = count > 0 ? index % count : 0;
 
   const arrowBase = onInk
     ? "border-bg/25 text-bg hover:border-accent hover:text-accent"
@@ -86,25 +122,30 @@ export default function Carousel({
           onDragEnd={onDragEnd}
           animate={{ x: `${-index * 100}%` }}
           transition={
-            reduce
+            !animate || reduce
               ? { duration: 0 }
               : { duration: 1.1, ease: [0.22, 1, 0.36, 1] }
           }
+          onAnimationComplete={onTrackAnimationComplete}
         >
-          {items.map((item, i) => (
-            <div
-              key={item.id ?? i}
-              className="w-full shrink-0 px-1"
-              aria-hidden={i !== index}
-              aria-roledescription="slide"
-              aria-label={`${i + 1} of ${count}`}
-            >
-              {/* Prevent a drag from triggering link clicks mid-swipe. */}
-              <div className="pointer-events-auto select-none">
-                {renderItem(item, i)}
+          {display.map((item, di) => {
+            // The trailing clone (di === count) shows the first slide's content.
+            const logical = di === count ? 0 : di;
+            return (
+              <div
+                key={di}
+                className="w-full shrink-0 px-1"
+                aria-hidden={di !== index}
+                aria-roledescription="slide"
+                aria-label={`${logical + 1} of ${count}`}
+              >
+                {/* Prevent a drag from triggering link clicks mid-swipe. */}
+                <div className="pointer-events-auto select-none">
+                  {renderItem(item, logical)}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
 
@@ -135,12 +176,12 @@ export default function Carousel({
               key={item.id ?? i}
               type="button"
               role="tab"
-              aria-selected={i === index}
+              aria-selected={i === activeDot}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => go(i)}
               className={[
                 "h-[6px] rounded-full transition-all duration-500 ease-editorial",
-                i === index
+                i === activeDot
                   ? "w-6 bg-accent"
                   : onInk
                   ? "w-[6px] bg-bg/30 hover:bg-bg/60"
