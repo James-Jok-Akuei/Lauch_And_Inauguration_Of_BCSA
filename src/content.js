@@ -334,14 +334,17 @@ export const culture = {
 };
 
 /* ---------------------------------------------------------------------------
- *  VIDEOS — EXACTLY FOUR YouTube videos (click-to-load facade in-page).
+ *  VIDEOS — YouTube videos shown as click-to-load facades in a 2-column grid.
  *  Replace `youtubeId` with the 11-character id from each video's URL.
+ *  Add or remove items freely (they flow into the grid).
  * ------------------------------------------------------------------------- */
 export const videos = [
   { id: "v1", title: "Madiing Bor — Bob Dizzy SK", youtubeId: "j76b_qsAEts" },
   { id: "v2", title: "Dergel Hit Song, Bor County — Jok Aguek Ngong", youtubeId: "5g63LvzycnI" },
   { id: "v3", title: "Nyiir Bor in Nairobi (Part 1)", youtubeId: "yo-bhotk5Nc" },
   { id: "v4", title: "2026 Bor Community Annual Conference, Lincoln NE (Part 1)", youtubeId: "w36bMnDGhpg" },
+  { id: "v5", title: "Bor County — Jok Aguek Ngong", youtubeId: "a6S_TM3CVOs" },
+  { id: "v6", title: "Bor County Students in Rwanda", youtubeId: "t4l_oIkuyyw" },
 ];
 
 /* ---------------------------------------------------------------------------
