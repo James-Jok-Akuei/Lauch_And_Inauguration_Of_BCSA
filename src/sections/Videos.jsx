@@ -17,9 +17,9 @@ const Videos = forwardRef(function Videos(_props, ref) {
         </h2>
       </Reveal>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {videos.map((v, i) => (
-          <Reveal key={v.id} delay={(i % 2) * 0.08} amount={0.2}>
+          <Reveal key={v.id} delay={(i % 3) * 0.08} amount={0.2}>
             <figure>
               <VideoFacade youtubeId={v.youtubeId} title={v.title} />
               <figcaption className="mt-4 flex items-baseline gap-3">
