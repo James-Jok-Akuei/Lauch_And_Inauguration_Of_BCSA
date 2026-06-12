@@ -333,6 +333,7 @@ export const culture = {
     { id: "cg47", title: "Dressed in Tradition", photo: "/photos/culture/ig-23.jpeg" },
     { id: "cg48", title: "Young Cattle Keeper", photo: "/photos/culture/ig-24.jpeg" },
     { id: "cg49", title: "A Cultural Festival", photo: "/photos/culture/wenmayam.jpg" },
+    { id: "cg50", title: "Draped in Tradition", photo: "/photos/culture/ig-25.jpeg" },
   ],
 };
 
@@ -349,6 +350,7 @@ export const videos = [
   { id: "v5", title: "Bor County — Jok Aguek Ngong", youtubeId: "a6S_TM3CVOs" },
   { id: "v6", title: "Bor County Students in Rwanda", youtubeId: "t4l_oIkuyyw" },
   { id: "v7", title: "Bob Dizzy SK — Riak Ku Dheng", youtubeId: "5Auho8YzmeU" },
+  { id: "v8", title: "Classic Ayaya Songs of Pathuyith (Ahechbor)", youtubeId: "Lej-GqAAsvA" },
 ];
 
 /* ---------------------------------------------------------------------------
