@@ -345,6 +345,7 @@ export const videos = [
   { id: "v4", title: "2026 Bor Community Annual Conference, Lincoln NE (Part 1)", youtubeId: "w36bMnDGhpg" },
   { id: "v5", title: "Bor County — Jok Aguek Ngong", youtubeId: "a6S_TM3CVOs" },
   { id: "v6", title: "Bor County Students in Rwanda", youtubeId: "t4l_oIkuyyw" },
+  { id: "v7", title: "Bob Dizzy SK — Riak Ku Dheng", youtubeId: "5Auho8YzmeU" },
 ];
 
 /* ---------------------------------------------------------------------------
