@@ -330,6 +330,9 @@ export const culture = {
     { id: "cg44", title: "Born to the Cattle", photo: "/photos/culture/wel-akau-family.jpeg" },
     { id: "cg45", title: "Dawn in the Cattle Camp", photo: "/photos/culture/shot-1.png" },
     { id: "cg46", title: "Spirit of Celebration", photo: "/photos/culture/ig-22.jpg" },
+    { id: "cg47", title: "Dressed in Tradition", photo: "/photos/culture/ig-23.jpeg" },
+    { id: "cg48", title: "Young Cattle Keeper", photo: "/photos/culture/ig-24.jpeg" },
+    { id: "cg49", title: "A Cultural Festival", photo: "/photos/culture/wenmayam.jpg" },
   ],
 };
 
