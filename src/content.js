@@ -403,6 +403,21 @@ export const participants = {
     { id: "a13", slug: "pojulu", name: "Pojulu Cultural Group", photo: groupImg("Pojulu") },
     { id: "a14", slug: "aweil", name: "Aweil Cultural Group", photo: groupImg("Aweil") },
   ],
+
+  // Additional communities & cultural groups shown as text-only cards (no
+  // gallery). Each has a short line of writing — edit the `note` text freely.
+  delegations: [
+    { id: "d1", name: "Duk County Students", note: "Neighbours and kin from Duk, standing with Bor in unity and shared heritage." },
+    { id: "d2", name: "Lakes State", note: "Representing the proud cattle-keeping communities of Lakes State." },
+    { id: "d3", name: "Mundari", note: "The Mundari — celebrated cattle keepers of the central Nile." },
+    { id: "d4", name: "Acholi", note: "The Acholi, bringing their storied songs, dance, and heritage." },
+    { id: "d5", name: "Ngok Lual Yak", note: "The Ngok Lual Yak community, joining in solidarity and friendship." },
+    { id: "d6", name: "Luo", note: "The Luo, sharing a rich tradition of music and community." },
+    { id: "d7", name: "Maluth", note: "Representing the people of Maluth on the Upper Nile." },
+    { id: "d8", name: "Abyei", note: "From Abyei — a proud people of enduring spirit." },
+    { id: "d9", name: "Ruweng", note: "The Ruweng community, joining the celebration in kinship." },
+    { id: "d10", name: "Moru", note: "The Moru of Equatoria, known for craft, song, and dance." },
+  ],
 };
 
 /* ---------------------------------------------------------------------------

@@ -68,6 +68,22 @@ export default function ParticipantsPage() {
           ))}
         </div>
 
+        {/* Communities & cultural groups (text-only cards) */}
+        {participants.delegations?.length > 0 && (
+          <>
+            <Group
+              title="Communities &amp; Cultural Groups"
+              count={participants.delegations.length}
+              className="mt-14"
+            />
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {participants.delegations.map((item, i) => (
+                <TextCard key={item.id} index={i} name={item.name} note={item.note} />
+              ))}
+            </div>
+          </>
+        )}
+
         <div className="mt-16">
           <BackLink label="Return to the programme" />
         </div>
@@ -120,6 +136,26 @@ function Card({ slug, photo, name, tag }) {
         </p>
       </figcaption>
     </Link>
+  );
+}
+
+/* A text-only group card — a short, elegant write-up (no image / no gallery). */
+function TextCard({ index, name, note }) {
+  return (
+    <div className="group relative flex h-full flex-col rounded-xl border border-hairline bg-surface/40 p-6 transition-colors duration-500 hover:border-accent/50">
+      <div className="flex items-baseline justify-between">
+        <span className="block h-px w-8 bg-accent" aria-hidden="true" />
+        <span className="font-display text-sm tabular-nums text-accent/70">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+      <h3 className="mt-4 font-display text-xl font-normal leading-tight text-ink">
+        {name}
+      </h3>
+      <p className="mt-2 font-sans text-sm font-light leading-relaxed text-muted">
+        {note}
+      </p>
+    </div>
   );
 }
 
