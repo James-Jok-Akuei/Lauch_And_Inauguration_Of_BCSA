@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Eyebrow from "../components/Eyebrow.jsx";
 import Logo from "../components/Logo.jsx";
+import PageScroller from "../components/PageScroller.jsx";
 import { participants, site } from "../content.js";
+
+const SCROLL_KEY = "bcsa:participantsScroll";
 
 /* PARTICIPANTS PAGE — its own route at /participants (not part of the deck).
  * Lists the invited universities (leadership representatives) and the community
@@ -14,9 +17,18 @@ export default function ParticipantsPage() {
   // Index of the delegation shown full-screen (null = closed).
   const [activeIdx, setActiveIdx] = useState(null);
 
-  // Always start at the top of the page.
+  // Restore the previous scroll position when returning (e.g. from a gallery),
+  // otherwise start at the top.
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const saved = sessionStorage.getItem(SCROLL_KEY);
+    if (saved !== null) {
+      sessionStorage.removeItem(SCROLL_KEY);
+      requestAnimationFrame(() =>
+        window.scrollTo({ top: parseInt(saved, 10) || 0, behavior: "instant" })
+      );
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   // Keyboard control for the full-screen view: Esc closes, ←/→ navigate.
@@ -112,6 +124,9 @@ export default function ParticipantsPage() {
         </div>
       </div>
 
+      {/* Floating up/down page navigation */}
+      <PageScroller />
+
       {/* Full-screen view of a single community / cultural group */}
       <AnimatePresence>
         {activeIdx !== null && (
@@ -149,7 +164,12 @@ function Group({ title, count, className = "" }) {
 /* A single participant card — links to that group's gallery slideshow. */
 function Card({ slug, photo, name, tag }) {
   return (
-    <Link to={`/participants/${slug}`} aria-label={`View ${name} gallery`} className="group block">
+    <Link
+      to={`/participants/${slug}`}
+      aria-label={`View ${name} gallery`}
+      onClick={() => sessionStorage.setItem(SCROLL_KEY, String(window.scrollY))}
+      className="group block"
+    >
       <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface shadow-[0_18px_40px_-24px_rgba(21,20,15,0.4)] ring-1 ring-black/10 transition-shadow duration-500 group-hover:ring-accent/40">
         <img
           src={photo}
