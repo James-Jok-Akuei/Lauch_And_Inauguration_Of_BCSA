@@ -396,10 +396,8 @@ export const participants = {
     { id: "a6", slug: "wau", name: "Wau Cultural Group", photo: groupImg("Wau") },
     { id: "a7", slug: "fashoda", name: "Fashoda Cultural Group", photo: groupImg("Fashoda") },
     { id: "a8", slug: "bari", name: "Bari Cultural Group", photo: groupImg("Bari") },
-    { id: "a9", slug: "ram", name: "RAM Cultural Group", photo: groupImg("RAM") },
     { id: "a10", slug: "azande", name: "Azande Cultural Group", photo: groupImg("Azande") },
     { id: "a11", slug: "nuer", name: "Nuer Cultural Group", photo: groupImg("Nuer") },
-    { id: "a12", slug: "renk", name: "Renk Students' Association", photo: groupImg("Renk SA") },
     { id: "a13", slug: "pojulu", name: "Pojulu Cultural Group", photo: groupImg("Pojulu") },
     { id: "a14", slug: "aweil", name: "Aweil Cultural Group", photo: groupImg("Aweil") },
   ],
@@ -417,6 +415,8 @@ export const participants = {
     { id: "d8", name: "Abyei", note: "From Abyei — a proud people of enduring spirit." },
     { id: "d9", name: "Ruweng", note: "The Ruweng community, joining the celebration in kinship." },
     { id: "d10", name: "Moru", note: "The Moru of Equatoria, known for craft, song, and dance." },
+    { id: "d11", name: "RAM Cultural Group", note: "The RAM cultural group, sharing their songs, dance, and heritage." },
+    { id: "d12", name: "Renk Students' Association", note: "Students of Renk, joining Bor in unity and celebration." },
   ],
 };
 
