@@ -5,7 +5,7 @@
  * Images are ordered by filename (use 01.jpg, 02.jpg, ... to control order).
  */
 const modules = import.meta.glob(
-  "../assets/participants/**/*.{jpg,jpeg,png,webp,gif,avif,JPG,JPEG,PNG,WEBP}",
+  "../assets/participants/**/*.{jpg,jpeg,png,webp,gif,avif,svg,JPG,JPEG,PNG,WEBP,SVG}",
   { eager: true, query: "?url", import: "default" }
 );
 

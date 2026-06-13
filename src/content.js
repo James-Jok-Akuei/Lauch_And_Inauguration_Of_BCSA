@@ -385,7 +385,7 @@ export const participants = {
     { id: "u3", slug: "alu", name: "African Leadership University", abbr: "ALU", photo: uniImg("ALU") },
     { id: "u4", slug: "ur", name: "University of Rwanda", abbr: "UR", photo: uniImg("UR") },
     { id: "u5", slug: "ulk", name: "Kigali Independent University", abbr: "ULK", photo: uniImg("ULK") },
-    { id: "u6", slug: "upi", name: "UPI", abbr: "UPI", photo: uniImg("UPI") },
+    { id: "u6", slug: "ines", name: "INES-Ruhengeri", abbr: "INES", photo: uniImg("INES") },
   ],
   associations: [
     { id: "a1", slug: "south-sudanese", name: "South Sudanese Students' Association", photo: groupImg("South Sudanese SA") },
