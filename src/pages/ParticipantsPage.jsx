@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Eyebrow from "../components/Eyebrow.jsx";
@@ -18,17 +18,18 @@ export default function ParticipantsPage() {
   const [activeIdx, setActiveIdx] = useState(null);
 
   // Restore the previous scroll position when returning (e.g. from a gallery),
-  // otherwise start at the top.
-  useEffect(() => {
+  // otherwise start at the top. Guarded so it reads the saved value exactly
+  // once (React StrictMode runs effects twice in dev) and runs before paint.
+  const didRestore = useRef(false);
+  useLayoutEffect(() => {
+    if (didRestore.current) return;
+    didRestore.current = true;
     const saved = sessionStorage.getItem(SCROLL_KEY);
-    if (saved !== null) {
-      sessionStorage.removeItem(SCROLL_KEY);
-      requestAnimationFrame(() =>
-        window.scrollTo({ top: parseInt(saved, 10) || 0, behavior: "instant" })
-      );
-    } else {
-      window.scrollTo(0, 0);
-    }
+    sessionStorage.removeItem(SCROLL_KEY);
+    const y = saved !== null ? parseInt(saved, 10) || 0 : 0;
+    window.scrollTo(0, y);
+    // Re-assert after layout settles (covers late reflows).
+    requestAnimationFrame(() => window.scrollTo(0, y));
   }, []);
 
   // Keyboard control for the full-screen view: Esc closes, ←/→ navigate.
