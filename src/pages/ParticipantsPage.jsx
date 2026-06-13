@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Eyebrow from "../components/Eyebrow.jsx";
 import Logo from "../components/Logo.jsx";
 import { participants, site } from "../content.js";
@@ -10,11 +10,28 @@ import { participants, site } from "../content.js";
  * associations / cultural groups presenting speeches and cultural dances. */
 export default function ParticipantsPage() {
   const reduce = useReducedMotion();
+  const delegations = participants.delegations || [];
+  // Index of the delegation shown full-screen (null = closed).
+  const [activeIdx, setActiveIdx] = useState(null);
 
   // Always start at the top of the page.
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Keyboard control for the full-screen view: Esc closes, ←/→ navigate.
+  useEffect(() => {
+    if (activeIdx === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setActiveIdx(null);
+      else if (e.key === "ArrowRight")
+        setActiveIdx((i) => (i + 1) % delegations.length);
+      else if (e.key === "ArrowLeft")
+        setActiveIdx((i) => (i - 1 + delegations.length) % delegations.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeIdx, delegations.length]);
 
   return (
     <main className="min-h-[100dvh] bg-bg text-ink">
@@ -77,8 +94,14 @@ export default function ParticipantsPage() {
               className="mt-14"
             />
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {participants.delegations.map((item, i) => (
-                <TextCard key={item.id} index={i} name={item.name} note={item.note} />
+              {delegations.map((item, i) => (
+                <TextCard
+                  key={item.id}
+                  index={i}
+                  name={item.name}
+                  note={item.note}
+                  onOpen={() => setActiveIdx(i)}
+                />
               ))}
             </div>
           </>
@@ -88,6 +111,23 @@ export default function ParticipantsPage() {
           <BackLink label="Return to the programme" />
         </div>
       </div>
+
+      {/* Full-screen view of a single community / cultural group */}
+      <AnimatePresence>
+        {activeIdx !== null && (
+          <DelegationOverlay
+            item={delegations[activeIdx]}
+            index={activeIdx}
+            total={delegations.length}
+            reduce={reduce}
+            onClose={() => setActiveIdx(null)}
+            onPrev={() =>
+              setActiveIdx((i) => (i - 1 + delegations.length) % delegations.length)
+            }
+            onNext={() => setActiveIdx((i) => (i + 1) % delegations.length)}
+          />
+        )}
+      </AnimatePresence>
     </main>
   );
 }
@@ -139,10 +179,15 @@ function Card({ slug, photo, name, tag }) {
   );
 }
 
-/* A text-only group card — a short, elegant write-up (no image / no gallery). */
-function TextCard({ index, name, note }) {
+/* A text-only group card — click to open a full-screen view. */
+function TextCard({ index, name, note, onOpen }) {
   return (
-    <div className="group relative flex h-full flex-col rounded-xl border border-hairline bg-surface/40 p-6 transition-colors duration-500 hover:border-accent/50">
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`View ${name}`}
+      className="group relative flex h-full flex-col rounded-xl border border-hairline bg-surface/40 p-6 text-left transition-colors duration-500 hover:border-accent/50"
+    >
       <div className="flex items-baseline justify-between">
         <span className="block h-px w-8 bg-accent" aria-hidden="true" />
         <span className="font-display text-sm tabular-nums text-accent/70">
@@ -155,7 +200,97 @@ function TextCard({ index, name, note }) {
       <p className="mt-2 font-sans text-sm font-light leading-relaxed text-muted">
         {note}
       </p>
-    </div>
+      <span className="mt-4 inline-flex items-center gap-2 font-sans text-[0.7rem] uppercase tracking-widest2 text-ink/50 transition-colors group-hover:text-accent">
+        View
+        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
+      </span>
+    </button>
+  );
+}
+
+/* Full-screen takeover for a single community / cultural group. */
+function DelegationOverlay({ item, index, total, reduce, onClose, onPrev, onNext }) {
+  return (
+    <motion.div
+      role="dialog"
+      aria-modal="true"
+      aria-label={item.name}
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink text-bg"
+      initial={reduce ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduce ? {} : { opacity: 0 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      onClick={onClose}
+    >
+      {/* Faint emblem-style frame */}
+      <span aria-hidden="true" className="pointer-events-none absolute inset-6 border border-bg/10 sm:inset-10" />
+
+      {/* Close */}
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-bg/25 text-bg transition-colors hover:border-accent hover:text-accent sm:right-8 sm:top-8"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </button>
+
+      {/* Content (stop click-through so taps on the text don't close it) */}
+      <motion.div
+        className="relative mx-auto max-w-3xl px-8 text-center"
+        onClick={(e) => e.stopPropagation()}
+        initial={reduce ? false : { opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={reduce ? {} : { opacity: 0, y: -12 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        key={item.id}
+      >
+        <p className="font-sans text-eyebrow uppercase text-bg/55">
+          Community &amp; Cultural Group
+        </p>
+        <h2 className="mt-6 font-display text-display-lg font-light leading-[1.02] text-bg">
+          {item.name}
+        </h2>
+        <span className="mx-auto mt-8 block h-px w-16 bg-accent" aria-hidden="true" />
+        <p className="mt-8 font-display text-2xl font-light leading-relaxed text-bg/80 sm:text-3xl">
+          {item.note}
+        </p>
+      </motion.div>
+
+      {/* Prev / next + counter */}
+      <div
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-6"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onPrev}
+          aria-label="Previous"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-bg/25 text-bg transition-colors hover:border-accent hover:text-accent"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <span className="font-sans text-sm tabular-nums text-bg/60">
+          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </span>
+        <button
+          type="button"
+          onClick={onNext}
+          aria-label="Next"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-bg/25 text-bg transition-colors hover:border-accent hover:text-accent"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </motion.div>
   );
 }
 
